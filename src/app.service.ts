@@ -1,8 +1,13 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Post } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
   getHello(): string {
-    return 'Hello World!';
+    return 'Welcome to AS Server!';
+  }
+
+  @Post('login')
+  async login(username: string, password: string): Promise<boolean> {
+    return true;
   }
 }
