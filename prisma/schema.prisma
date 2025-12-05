@@ -22,9 +22,24 @@ model User {
 }
 
 model Product {
+  id        Int           @id @default(autoincrement())
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+  name      String
+  price     Float
+  image     String
+  sizes     ProductSize[]
+}
+
+model ProductSize {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   name      String
+  product   Product  @relation(fields: [productId], references: [id])
+  productId Int
+  stock     Int
   price     Float
+  discount  Float
+  image     String
 }
