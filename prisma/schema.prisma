@@ -28,7 +28,7 @@ model Product {
   updatedAt DateTime      @updatedAt
   name      String
   price     Float
-  image     String
+  image     String?
   sizes     ProductSize[]
   OrderItem OrderItem[]
 }
